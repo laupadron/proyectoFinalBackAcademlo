@@ -11,6 +11,7 @@ const addProduct = async (req, res) =>{
 };
 const getProducts = async (req,res) => {
   try {
+    
     const result = await ProductServices.get();
     res.json(result);
   } catch (error) {

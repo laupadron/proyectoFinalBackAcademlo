@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
  *           type: string
  *           example: parlante
  *         price:
- *           type: string
+ *           type: double
  *           example: 1500
  *         availableQty:
  *           type: int
@@ -24,9 +24,6 @@ module.exports = (sequelize, DataTypes) => {
  *         image_url:
  *           type: string
  *           example: https://d3ugyf2ht6aenh.cloudfront.net/stores/001/955/262/products/flip-511-b34b410f73b756b8f216389028421439-1024-1024.jpg
- *         status:
- *           type: bool
- *           example: false
  *         user_id:
  *           type: int
  *           example: 2
@@ -47,7 +44,7 @@ class product extends Sequelize.Model {
       allowNull: false
     },
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.DOUBLE,
       allowNull: false
     },
     availableQty: {
@@ -58,10 +55,7 @@ class product extends Sequelize.Model {
       type: DataTypes.STRING,
       allowNull: false
     },
-    status: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
+    
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

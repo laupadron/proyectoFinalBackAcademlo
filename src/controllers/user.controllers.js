@@ -13,7 +13,7 @@ const userWithOrders = async (req,res) => {
   try {
     const {id} = req.params;
     const result = await UserServices.withOrders(id);
-    res.json({message: "users with orders"});
+    res.json(result);
   } catch (error) {
     res.status(400).json(error.message);
   }

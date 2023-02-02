@@ -1,23 +1,24 @@
 const {Router} = require('express');
-const {createBuy} = require('../controllers/order.controller');
+const {createBuy}= require('../controllers/order.controller');
 
 const router = Router();
 
 /**
  * @openapi
- * /api/v1/order:
+ * /api/v1/order/{id}:
  *   post:
  *     security:
- *       - bearerAuth: []
- *     summary: new order created
+ *       bearerAuth: []
+ *     summary: create a buy
  *     tags: [Order]
- *     requestBody:
- *       description: required fields to create at order
+ *     parameters:
+ *       in: order
+ *       name: id
  *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schema/createProduct'
+ *       schema:
+ *         type: integer
+ *         minimun: 1
+ *       description: cart id
  *     responses:
  *       201:
  *         description: post
@@ -28,7 +29,7 @@ const router = Router();
  *               properties:
  *                 message:
  *                   type: string
- *                   example: new order created
+ *                   example: buy created
  *       400:
  *         description: validation error
  *         content:
@@ -41,6 +42,6 @@ const router = Router();
  *                   example: validation error
  */
 
-router.post('/', createBuy);
+router.post('/:id', createBuy);
 
 module.exports = router;

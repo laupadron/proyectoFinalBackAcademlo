@@ -18,7 +18,7 @@ class product_in_order extends Sequelize.Model {
       allowNull: false
     },
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.DOUBLE,
       allowNull: false
     },
     type: {

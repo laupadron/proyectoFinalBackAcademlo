@@ -1,4 +1,5 @@
 const models = require ('../models');
+const { Op } = require("sequelize");
 
 class ProductServices{
   static async add(product){
@@ -9,16 +10,18 @@ class ProductServices{
       throw error;
     }
   };
+ 
   static async get (){
     try {
       const result = await models.product.findAll({
+        where:{availableQty: {[Op.gt]: 0}},
         include:{
           model: models.user,
           as:"user",
           attributes:["username"]
         }
       })
-      return result.filter(res=>res.availableQty > 0);
+      return result;
     } catch (error) {
       throw error;
     }

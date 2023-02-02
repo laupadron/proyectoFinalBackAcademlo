@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
  *       type: object
  *       properties:
  *         total_price:
- *           type: string
+ *           type: double
  *           example: 1500
  *         type:
  *           type: enum
@@ -32,7 +32,7 @@ class order extends Sequelize.Model {
       primaryKey: true
     },
     total_price: {
-      type: DataTypes.STRING,
+      type: DataTypes.DOUBLE,
       allowNull: false
     },
     type: {
